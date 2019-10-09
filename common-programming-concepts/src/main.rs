@@ -33,6 +33,40 @@ fn data_types() {
     tuple_type();
     array_type();
 
+    /* Functions */
+    function_parameters(5);
+    function_return_value();
+    function_parameter_and_return_value();
+
+    /* Comments */
+    // tldr: double slash, slash star
+
+    /* Control Flow */
+}
+
+fn function_parameter_and_return_value() {
+    println!("== Function Return Value And Parameter ==");
+    let z = plus_one(5);
+    println!("the value of z is {}", z);
+}
+
+fn plus_one(i: i32) -> i32 {
+    return i + 1;
+}
+
+fn function_return_value() {
+    println!("== Function Return Value ==");
+    let x = five();
+    println!("the value of x is {}", x);
+}
+
+fn five() -> i32 {
+    return 5;
+}
+
+fn function_parameters(x: i32) {
+    println!("== Function Paramters == ");
+    println!("the value of x is {}", x);
 }
 
 fn array_type() {
