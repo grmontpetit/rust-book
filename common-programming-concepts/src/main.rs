@@ -42,8 +42,118 @@ fn data_types() {
     // tldr: double slash, slash star
 
     /* Control Flow */
+    if_expressions();
+    multiple_conditions();
+    conditional_assignation();
+    loop_return_values();
+    while_loops();
+    collection_looping();
+    lift_off_v2();
+
+    /* Exercices */
+    temperature_converter();
+    fibonacci();
+    christmas_carol_lyrics();
 }
 
+fn christmas_carol_lyrics() {
+    // TODO
+}
+
+fn fibonacci() {
+    // TODO
+}
+
+fn temperature_converter() {
+    // TODO
+}
+
+fn lift_off_v2() {
+    println!("== Lift-Off: Version 2 ==");
+    for number in (1..4).rev() {
+        println!("{}!", number);
+    }
+    println!("LIFTOFF!!!");
+}
+
+fn collection_looping() {
+    println!("== Looping Through a Collection: For ==");
+    let a = [10, 20, 30, 40, 50];
+
+    for element in a.iter() {
+        println!("the value is: {}", element);
+    }
+}
+
+fn while_loops() {
+    println!("== While Loops ==");
+
+    let mut number = 3;
+
+    while number != 0 {
+        println!("{}!", number);
+
+        number -= 1;
+    }
+
+    println!("LIFTOFF!!!");
+}
+
+fn loop_return_values() {
+    println!("== Return Values from Loops ==");
+    let mut counter = 0;
+
+    let result = loop {
+        counter += 1;
+
+        if counter == 10 {
+            break counter * 2;
+        }
+    };
+    println!("loop result: {}", result);
+}
+
+fn conditional_assignation() {
+    println!("== Conditional Assignations ==");
+
+    let condition = true;
+
+    let number = if condition {
+        // type is i32
+        5
+    } else {
+        // type is i32
+        6
+    // Notice the semi-colon below
+    };
+    println!("the conditional assignation is {}", number);
+}
+
+fn multiple_conditions() {
+    println!("== If Expressions ==");
+    let number = 6;
+
+    if number % 4 == 0 {
+        println!("number is divisible by 4");
+    } else if number % 3 == 0 {
+        println!("number is divisible by 3");
+    } else if number % 2 == 0 {
+        println!("number is divisible by 2");
+    } else {
+        println!("number is not divisible by 4, 3, or 2");
+    }
+}
+
+fn if_expressions() {
+    println!("== If Expressions ==");
+    let number = 3;
+
+    if number < 5 {
+        println!("condition was true");
+    } else {
+        println!("condition was false");
+    }
+}
 fn function_parameter_and_return_value() {
     println!("== Function Return Value And Parameter ==");
     let z = plus_one(5);
