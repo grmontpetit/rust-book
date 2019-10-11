@@ -2,6 +2,32 @@
 fn main() {
     variables_and_mutability();
     data_types();
+    functions();
+    comments();
+    control_flow();
+}
+
+fn functions() {
+    /* Functions */
+    function_parameters(5);
+    function_return_value();
+    function_parameter_and_return_value();
+}
+
+fn comments() {
+    /* Comments */
+    // Comment
+}
+
+fn control_flow() {
+    /* Control Flow */
+    if_expressions();
+    multiple_conditions();
+    conditional_assignation();
+    loop_return_values();
+    while_loops();
+    collection_looping();
+    lift_off_v2();
 }
 
 fn variables_and_mutability() {
@@ -32,23 +58,6 @@ fn data_types() {
     /* Compound */
     tuple_type();
     array_type();
-
-    /* Functions */
-    function_parameters(5);
-    function_return_value();
-    function_parameter_and_return_value();
-
-    /* Comments */
-    // tldr: double slash, slash star
-
-    /* Control Flow */
-    if_expressions();
-    multiple_conditions();
-    conditional_assignation();
-    loop_return_values();
-    while_loops();
-    collection_looping();
-    lift_off_v2();
 
     /* Exercices */
     temperature_converter();
