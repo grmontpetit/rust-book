@@ -5,6 +5,13 @@ fn main() {
     functions();
     comments();
     control_flow();
+
+    /* Exercices */
+    temperature_converter();
+    let nth = 6;
+    let fib = fibonacci(nth);
+    println!("{}th fibonacci is {}", nth, fib);
+    christmas_carol_lyrics();
 }
 
 fn functions() {
@@ -58,23 +65,67 @@ fn data_types() {
     /* Compound */
     tuple_type();
     array_type();
-
-    /* Exercices */
-    temperature_converter();
-    fibonacci();
-    christmas_carol_lyrics();
 }
 
 fn christmas_carol_lyrics() {
     // TODO
+    let lyrics = ["We wish you a Merry Christmas",
+    " and a Happy New Year!",
+    "Good tidings we bring to you and your kin",
+    "We all want some figgy pudding",
+    ", so bring some right here.",
+    "We won't go until we get some",
+    ", so bring some right here."];
+    for _ in 0..2 {
+        println!("{}", lyrics[0]);
+    }
+    println!("{}{}", lyrics[0], lyrics[1]);
+    println!("{}", lyrics[2]);
+    println!("{}{}", lyrics[0], lyrics[1]);
+    println!("{}", lyrics[2]);
+    for _ in 0..1 {
+        println!("{}{}", lyrics[3], lyrics[6]);
+    }
+    println!("{}{}", lyrics[3], lyrics[4]);
+    println!("{}", lyrics[5]);
+    println!("{}{}", lyrics[5], lyrics[6]);
+    println!("{}", lyrics[2]);
+    println!("{}{}", lyrics[0], lyrics[1]);
+    println!("{}", lyrics[2]);
+    println!("{}{}", lyrics[0], lyrics[1]);
+    for _ in 0..1 {
+        println!("{}", lyrics[0]);
+    }
+    println!("{}{}", lyrics[0], lyrics[1]);
+        for _ in 0..2 {
+        println!("{}", lyrics[0]);
+    }
+    println!("{}{}", lyrics[0], lyrics[1]);
 }
 
-fn fibonacci() {
-    // TODO
+fn fibonacci(number: i32) -> i32 {
+    if number < 2 {return number;}
+    else {
+        fibonacci(number - 1) + fibonacci(number - 2)
+    }
 }
 
 fn temperature_converter() {
-    // TODO
+    println!("== Temperature Conversion ==");
+    let celcius = 20;
+    let fahrenheit = 59;
+    println!("{} celcius is {} fahrenheit", celcius, celcius_to_fahrenheit(celcius as f32));
+    println!("{} fahrenheit is {} celcius", fahrenheit, fahrenheit_to_celcius(fahrenheit as f32));
+}
+
+fn celcius_to_fahrenheit(celcius: f32) -> f32 {
+    let temperature = (celcius as f32 * (9.0/5.0)) + 32.0;
+    return temperature;
+}
+
+fn fahrenheit_to_celcius(fahrenheit: f32) -> f32 {
+    let celcius = (fahrenheit - 32.0) * (5.0/9.0);
+    return celcius;
 }
 
 fn lift_off_v2() {
