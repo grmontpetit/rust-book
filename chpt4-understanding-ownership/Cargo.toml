@@ -1,5 +1,5 @@
 [package]
-name = "common-programming-concepts"
+name = "chpt4-understanding-ownership"
 version = "0.1.0"
 authors = ["grmontpetit <grmontpetit@gmail.com>"]
 edition = "2018"

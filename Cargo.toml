@@ -1,5 +1,6 @@
 [workspace]
 members = [
   "guess-game",
-  "common-programming-concepts"
+  "chpt3-common-programming-concepts",
+  "chpt4-understanding-ownership"
 ]
