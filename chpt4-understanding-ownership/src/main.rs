@@ -8,7 +8,54 @@ fn main() {
     ownership();
     return_values_and_scope();
     returning_ownership();
+    references();
 }
+
+fn references() {
+    println!("== References ==");
+    let s1 = String::from("hello");
+
+    // here, calculate_length_with_ref is "borrowing" s1.
+    let len = calculate_length_with_ref(&s1);
+
+    println!("The length of '{}' is {}.", s1, len);
+
+    // mutable reference
+    let mut s2 = String::from("hi");
+    change(&mut s2);
+    println!("{}", s2);
+
+    // dangling reference vs. no dangling
+    // let d = dangle();
+    println!("no dangle: {}", no_dangle());
+}
+
+// Below will not compile
+// fn dangle() -> &String { // dangle returns a reference to a String
+
+//     let s = String::from("hello"); // s is a new String
+
+//     &s // we return a reference to the String, s
+// } // Here, s goes out of scope, and is dropped. Its memory goes away.
+//   // Danger!
+
+fn no_dangle() -> String {
+    let s = String::from("hello");
+    // return the string, not the ref
+    s
+}
+
+fn change(some_string: &mut String) {
+    some_string.push_str(", world");
+}
+
+// s is a reference to a String, so the function doesn't take ownership of it.
+// This is called borrowing.
+fn calculate_length_with_ref(s: &String) -> usize {
+    // The reference is not mutable
+    s.len()
+} // Here, s goes out of scope. But because it does not have ownership of what
+  // it refers to, nothing happens
 
 fn returning_ownership() {
     println!("== Returning Ownership ==");
