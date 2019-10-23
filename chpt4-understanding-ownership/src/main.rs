@@ -9,6 +9,47 @@ fn main() {
     return_values_and_scope();
     returning_ownership();
     references();
+    slices();
+}
+
+fn slices() {
+    println!("== Slices ==");
+    let mut s = String::from("hello world");
+
+    let _word = first_word(&s); // word will get the value 5
+
+    s.clear(); // this empties the String, making it equal to ""
+
+    // word still has the value 5 here, but there's no more string that
+    // we could meaningfully use the value 5 with. word is now totally invalid!
+
+    let s = String::from("hello world");
+    // string slices are REFERENCES to part of a string
+    let hello = &s[0..5];
+    let world = &s[6..11];
+    println!("{} {}", hello, world);
+
+    let sentence = String::from("The first word in a sentence.");
+    let string_literal: &str = "a string litteral";
+    let word = first_word(&sentence);
+    let word2 = first_word(string_literal);
+    println!("{}", word);
+    println!("{}", word2);
+    
+}
+
+// notice the &str: this can be both used with &String and &str
+// &Str
+fn first_word(s: &str) -> &str {
+    let bytes = s.as_bytes();
+
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return &s[0..i];
+        }
+    }
+
+    &s[..]
 }
 
 fn references() {
