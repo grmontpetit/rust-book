@@ -2,5 +2,6 @@
 members = [
   "guess-game",
   "chpt3-common-programming-concepts",
-  "chpt4-understanding-ownership"
+  "chpt4-understanding-ownership",
+  "chpt5-structs"
 ]
