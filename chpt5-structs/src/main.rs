@@ -2,6 +2,71 @@ use std::fmt;
 
 fn main() {
     defining_and_instanciating_structs();
+    an_example_program_using_structs();
+    method_syntax();
+}
+
+fn method_syntax() {
+    println!("== Method Syntax ==");
+    let rect1 = Rectangle { width: 30, height: 50 };
+    let rect2 = Rectangle { width: 10, height: 40 };
+    let rect3 = Rectangle { width: 60, height: 45 };
+    println!(
+        "The area of the rectangle is {} square pixels.",
+        rect1.area()
+    );
+    println!("Can rect1 hold rect2? {}", rect1.can_hold(&rect2));
+    println!("Can rect1 hold rect3? {}", rect1.can_hold(&rect3));
+    
+    let square = Rectangle::square(2);
+    println!("Square of 2 is {:?}", square);
+    Rectangle::hello("hello, world!");
+}
+
+
+// method syntax: implementation of a method on the Rectangle struct
+impl Rectangle {
+    // Struct Method
+    fn area(&self) -> u32 {
+        self.width * self.height
+    }
+    // Struct Method
+    fn can_hold(&self, other: &Rectangle) -> bool {
+        self.width > other.width && self.height > other.height
+    }
+    // Associated function
+    fn square(size: u32) -> Rectangle {
+        Rectangle { width: size, height: size }
+    }
+}
+// multiple imp blocks
+impl Rectangle {
+    fn hello(message: &str) {
+        println!("{}", message);
+    }
+}
+
+fn an_example_program_using_structs() {
+    println!("== An example program using structs ==");
+    let rectangle = Rectangle{
+        width: 30, height: 50
+    };
+    println!(
+        "The area of the rectangle is {} square pixels.",
+        area(&rectangle)
+    );
+    println!("rect1 is {:?}", rectangle);
+    println!("rect1 is {:#?}", rectangle);
+}
+
+#[derive(Debug)]
+struct Rectangle {
+    width: u32,
+    height: u32,
+}
+
+fn area(rectangle: &Rectangle) -> u32 {
+    rectangle.width * rectangle.height
 }
 
 fn defining_and_instanciating_structs() {
