@@ -3,5 +3,6 @@ members = [
   "guess-game",
   "chpt3-common-programming-concepts",
   "chpt4-understanding-ownership",
-  "chpt5-structs"
+  "chpt5-structs",
+  "chpt6-enums-and-pattern-matching"
 ]
